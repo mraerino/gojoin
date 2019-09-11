@@ -50,7 +50,7 @@ func run(cmd *cobra.Command, args []string) {
 	a := api.NewAPI(config, db, &api.StripeProxy{}, Version)
 	err = a.Serve()
 	if err != nil {
-		logger.WithError(err).Error("Error while running API: %v", err)
+		logger.WithError(err).Errorf("Error while running API: %v", err)
 		os.Exit(1)
 	}
 	logger.Info("API Shutdown")

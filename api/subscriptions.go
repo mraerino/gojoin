@@ -199,7 +199,7 @@ func createSub(ctx context.Context, subType string, payload *subscriptionRequest
 
 			if rsp := db.Save(user); rsp.Error != nil {
 				log.WithError(rsp.Error).Warnf("Failed to save new user with remote ID %s", remoteID)
-				return nil, httpError(http.StatusInternalServerError, "Failed to save customer to db: %d", remoteID)
+				return nil, httpError(http.StatusInternalServerError, "Failed to save customer to db: %s", remoteID)
 			}
 			log.Infof("Created new user with remote ID: %s", user.RemoteID)
 		} else {
